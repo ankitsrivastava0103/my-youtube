@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { YT_VIDEO_API } from "../utils/constants";
 import { getVideos } from "../utils/redux/videoSlice";
 import VideoCard from "./VideoCard";
+import { Link } from "react-router-dom";
 
 const VideoContainer = () => {
   const dispatch = useDispatch();
@@ -19,9 +20,13 @@ const VideoContainer = () => {
     dispatch(getVideos(json.items));
   };
   return (
-    <div className="flex flex-wrap overflow-y-auto m-2 ">
+    <div className="flex flex-wrap overflow-y-auto m-2">
       {videoList?.map((video) => {
-        return <VideoCard key={video.id} info={video} />;
+        return (
+          <Link className="w-[25%]" to={"/watch?v=" + video.id} key={video.id}>
+            <VideoCard info={video} />
+          </Link>
+        );
       })}
     </div>
   );

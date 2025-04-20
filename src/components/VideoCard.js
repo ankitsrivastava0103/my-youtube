@@ -6,7 +6,7 @@ const VideoCard = ({ info }) => {
   // const
 
   return (
-    <div className="m-3 p-2 w-[23%] shadow-sm cursor-pointer">
+    <div className="m-3 p-2 shadow-sm cursor-pointer">
       <img
         className="rounded-lg"
         alt="thumbnails"
